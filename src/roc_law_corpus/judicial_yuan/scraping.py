@@ -9,7 +9,6 @@ class JudicialYuanQASpider(scrapy.Spider):
     name = "judicial-yuan-qa"
     allowed_domains = ["www.judicial.gov.tw"]
     start_urls = ["https://www.judicial.gov.tw/tw/lp-1303-1.html"]
-    custom_settings = {}
 
     def parse(self, response):
         qa_list = response.css("div.qa_list > ul > li")
