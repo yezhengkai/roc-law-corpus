@@ -19,8 +19,10 @@ def jl_clean_bang(list_cps):
     """Clean the corpus"""
     jl.broadcast(jl.clean_b, list_cps)
 
+
 def jl_to_dict(list_cps) -> list:
     return jl.broadcast(jl.CorpusCleanerForTWLaws.Dict, list_cps)
+
 
 def save2json(destination_json, list_cps) -> None:
     """Save results as JSON file"""
