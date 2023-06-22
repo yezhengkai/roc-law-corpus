@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "roc-law-corpus"
+version = "0.1.0"
+description = ""
+authors = ["Zheng-Kai Ye <supon3060@gmail.com>"]
+readme = "README.md"
+packages = [{include = "roc_law_corpus", from = "src"}]
+
+[tool.poetry.scripts]
+roc-law-corpus = 'roc_law_corpus.cli:main'
+
+[tool.poetry.dependencies]
+python = "^3.10"
+scrapy = "^2.9.0"
+juliacall = "^0.9.13"
+
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^8.14.0"
+ruff = "^0.0.272"
+isort = "^5.12.0"
+black = "^23.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
