@@ -31,6 +31,15 @@ def get_args_parser() -> ArgumentParser:
         "destination_json", help="Path of json to be exported"
     )
 
+    # MOEX exam
+    moex_parser = subparsers.add_parser("moex", help="Operating on corpus of moex exam")
+    moex_subparser = moex_parser.add_subparsers(
+        description="valid subcommands", dest="moex_subcmd"
+    )
+    moex_scraping_parser = moex_subparser.add_parser("scraping", help="Scraping corpus")
+    moex_scraping_parser.add_argument("storage_dir", help="Directory for storing files")
+    # TODO: moex extract
+
     return parser
 
 
@@ -54,6 +63,14 @@ def main(args=None):
             from roc_law_corpus.judicial_yuan.scraping import main
 
             main(args.json)
+    elif args.subcmd == "moex":
+        if args.moex_subcmd == "extract":
+            # TODO: moex extract
+            pass
+        elif args.moex_subcmd == "scraping":
+            from roc_law_corpus.moex.scraping import main
+
+            main(args.storage_dir)
 
 
 if __name__ == "__main__":
