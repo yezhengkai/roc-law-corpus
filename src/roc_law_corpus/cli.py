@@ -38,7 +38,13 @@ def get_args_parser() -> ArgumentParser:
     )
     moex_scraping_parser = moex_subparser.add_parser("scraping", help="Scraping pdfs")
     moex_scraping_parser.add_argument("storage_dir", help="Directory for storing pdfs")
-    # TODO: moex extract
+    moex_extract_parser = moex_subparser.add_parser(
+        "extract", help="Extract pdf content"
+    )
+    moex_extract_parser.add_argument("pdf_dir", help="Directory with pdfs")
+    moex_extract_parser.add_argument(
+        "destination_json", help="Path of json to be exported"
+    )
 
     return parser
 
@@ -65,8 +71,9 @@ def main(args=None):
             main(args.json)
     elif args.subcmd == "moex":
         if args.moex_subcmd == "extract":
-            # TODO: moex extract
-            pass
+            from roc_law_corpus.moex.extract import extract_pdf_content
+
+            extract_pdf_content(args.pdf_dir, args.destination_json)
         elif args.moex_subcmd == "scraping":
             from roc_law_corpus.moex.scraping import main
 
