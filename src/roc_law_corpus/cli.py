@@ -36,7 +36,7 @@ def get_args_parser() -> ArgumentParser:
     moex_subparser = moex_parser.add_subparsers(
         description="valid subcommands", dest="moex_subcmd"
     )
-    moex_scraping_parser = moex_subparser.add_parser("scraping", help="Scraping corpus")
+    moex_scraping_parser = moex_subparser.add_parser("scraping", help="Scraping pdfs")
     moex_scraping_parser.add_argument("storage_dir", help="Directory for storing pdfs")
     # TODO: moex extract
 
