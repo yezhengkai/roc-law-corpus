@@ -40,4 +40,4 @@ def clean_json(source_json, destination_json):
 
 
 if __name__ == "__main__":
-    clean_json(*sys.argv[1:])
+    clean_json(sys.argv[1], sys.argv[2])
