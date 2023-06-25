@@ -3,6 +3,7 @@ from pathlib import Path
 import juliapkg
 
 # ref: https://github.com/cjdoris/pyjuliapkg
+JULIA_COMPAT = "1.9"
 JULIAPKG_JSON = Path(juliapkg.project()).joinpath("pyjuliapkg", "juliapkg.json")
 JULIA_DEPS = [
     {
@@ -29,6 +30,7 @@ JULIA_DEPS = [
 
 
 def instantiate() -> None:
+    juliapkg.require_julia(JULIA_COMPAT, target=JULIAPKG_JSON)
     for dep in JULIA_DEPS:
         juliapkg.add(**dep)
     juliapkg.resolve()
