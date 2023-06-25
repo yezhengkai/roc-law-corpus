@@ -12,6 +12,7 @@ roc-law-corpus = 'roc_law_corpus.cli:main'
 [tool.poetry.dependencies]
 python = "^3.10"
 scrapy = "^2.9.0"
+w3lib = "^2.1.1"
 juliacall = "^0.9.13"
 juliapkg = "^0.1.10"
 pdfplumber = "^0.9.0"
